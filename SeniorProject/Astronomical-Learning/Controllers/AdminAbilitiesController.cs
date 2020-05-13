@@ -687,18 +687,6 @@ namespace Astronomical_Learning.Controllers
             return RedirectToAction("AllAdmin");
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult AdminFeatures()
         {
@@ -719,9 +707,9 @@ namespace Astronomical_Learning.Controllers
             var userId = User.Identity.GetUserId();
             var user = db.AspNetUsers.Find(userId);
 
+            model.DisplayCount = 0;
             model.AdminUsername = user.UserName;
             model.DateSubmitted = DateTime.Now;
-            model.DisplayCount = 0;
 
             bool added = false;
             if (ModelState.IsValid)
@@ -731,6 +719,7 @@ namespace Astronomical_Learning.Controllers
                 added = true;
             }
             ViewBag.Added = added;
+            ViewBag.FactList = db.FactOfTheDays.Where(m => m.DisplayCount >= 0);
             return View();
         }
 
