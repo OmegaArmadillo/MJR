@@ -884,3 +884,4 @@ function filterDataFetch() {
     };
     $.ajax(FilterOptions);
 }
+

@@ -19,7 +19,7 @@ namespace Astronomical_Learning.Controllers
 
         private ALContext db = new ALContext();
 
-
+        //returns all of the unchecked comments as a list
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult ReviewComments()
         {
@@ -30,7 +30,7 @@ namespace Astronomical_Learning.Controllers
             return View(unreviewdComments);
         }
 
-
+        //method to accept a comment from the review comments page
         [HttpPost]
         [Authorize(Roles = "Administrator,Super Administrator")]
         public void AcceptComment(int? commentId)
@@ -43,6 +43,7 @@ namespace Astronomical_Learning.Controllers
                 {
                     comment.AcceptState = true;
 
+                    //add points to admin who accepted the comment
                     var userID = User.Identity.GetUserId();
                     var user = db.AspNetUsers.Find(userID);
                     user.AccountScore = (int)user.AccountScore + 5;
@@ -50,9 +51,10 @@ namespace Astronomical_Learning.Controllers
                     db.SaveChanges();
                 }
             }
+
         }
 
-
+        //method to delete a comment from the review comments page
         [HttpPost]
         [Authorize(Roles = "Administrator,Super Administrator")]
         public void DeleteComment(int? commentId)
@@ -69,7 +71,7 @@ namespace Astronomical_Learning.Controllers
             }
         }
 
-
+        //return all users in the database who are regular users
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult AllUsers()
         {
@@ -94,7 +96,7 @@ namespace Astronomical_Learning.Controllers
 
         }
 
-
+        //returns all users who are searched from the all users page
         [HttpPost]
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult AllUsers(string searchInput)
@@ -119,7 +121,7 @@ namespace Astronomical_Learning.Controllers
             return View(regularUsers);
         }
 
-
+        //returns a list of all banned users who are regular users
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult BannedUsers()
         {
@@ -141,6 +143,7 @@ namespace Astronomical_Learning.Controllers
             return View(bannedUsers);
         }
 
+        //returns all banned users who are searched from the banned users page
         [HttpPost]
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult BannedUsers(string searchInput)
@@ -162,7 +165,7 @@ namespace Astronomical_Learning.Controllers
             return View(bannedUsers);
         }
 
-
+        //the page to display when editing the ban for a user
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult EditUserBan(string id)
         {
@@ -170,24 +173,35 @@ namespace Astronomical_Learning.Controllers
 
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("CustomError", "Home", new { errorName = "This use does not exist.", errorMessage = "The user may have been removed or did not exist." });
             }
             DAL.AspNetUser aspNetUser = db.AspNetUsers.Find(id);
             if (aspNetUser == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("CustomError", "Home", new { errorName = "This user does not exist.", errorMessage = "The user may have been removed or did not exist." });
             }
             ViewBag.AID = new SelectList(db.AvatarPaths, "ID", "AvatarName", aspNetUser.AID);
             return View(aspNetUser);
         }
 
+        //edit the ban of the user and save it to the database 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult EditUserBan( DAL.AspNetUser aspNetUser)
         {
 
-            var user = db.AspNetUsers.Find(aspNetUser.Id);
+            DAL.AspNetUser user;
+
+            try
+            {
+                user = db.AspNetUsers.Find(aspNetUser.Id);
+            }
+            catch
+            {
+                return RedirectToAction("CustomError", "Home", new { errorName = "This user does not exist.", errorMessage = "The user may have been removed or did not exist." });
+            }
+
             user.LockoutEndDateUtc = aspNetUser.LockoutEndDateUtc;
 
 
@@ -480,7 +494,7 @@ namespace Astronomical_Learning.Controllers
 
 
 
-        // GET: /Account/Register
+        //the page to create new regular admins
         [AllowAnonymous]
         [Authorize(Roles = "Super Administrator")]
         public ActionResult AdminCreate()
@@ -495,8 +509,7 @@ namespace Astronomical_Learning.Controllers
         }
 
 
-        //
-        // POST: /Account/Register
+       //create the new admin
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -506,8 +519,10 @@ namespace Astronomical_Learning.Controllers
 
             if (ModelState.IsValid)
             {
+                //used to determine the profile picture of the admin
                 Random rand = new Random();
                 int x = rand.Next(1, 7);
+
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Country = model.Country, StateProvince = model.StateProvince, AID = x };
                 if (db.AspNetUsers.Any(m => m.UserName == user.UserName) == true)
                 {
@@ -564,7 +579,7 @@ namespace Astronomical_Learning.Controllers
 
 
 
-
+        //returns a list of all regular administrators
         [Authorize(Roles = "Super Administrator")]
         public ActionResult AllAdmin()
         {
@@ -588,6 +603,7 @@ namespace Astronomical_Learning.Controllers
 
         }
 
+        //returns the search of all regular administrators
         [HttpPost]
         [Authorize(Roles = "Super Administrator")]
         public ActionResult AllAdmin(string searchInput)
@@ -612,6 +628,7 @@ namespace Astronomical_Learning.Controllers
             return View(searchedAdmins);
         }
 
+        //returns the list of all banned regular administrators
         [Authorize(Roles = "Super Administrator")]
         public ActionResult BannedAdmin()
         {
@@ -631,6 +648,7 @@ namespace Astronomical_Learning.Controllers
             return View(bannedAdmins);
         }
 
+        //returns the results of all banned admins after searching
         [Authorize(Roles = "Super Administrator")]
         [HttpPost]
         public ActionResult BannedAdmin(string searchInput)
@@ -652,47 +670,60 @@ namespace Astronomical_Learning.Controllers
         }
 
 
-
+        //page to edit the bans of admins
         [Authorize(Roles = "Super Administrator")]
         public ActionResult EditAdminBan(string id)
         {
 
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("CustomError", "Home", new { errorName = "This administrator does not exist.", errorMessage = "The administrator may have been removed or did not exist." });
             }
             DAL.AspNetUser aspNetUser = db.AspNetUsers.Find(id);
             if (aspNetUser == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("CustomError", "Home", new { errorName = "This administrator does not exist.", errorMessage = "The administrator may have been removed or did not exist." });
             }
             ViewBag.AID = new SelectList(db.AvatarPaths, "ID", "AvatarName", aspNetUser.AID);
             return View(aspNetUser);
         }
 
+        //edit the admin ban and save changes
         [HttpPost]
         [Authorize(Roles = "Super Administrator")]
         [ValidateAntiForgeryToken]
         public ActionResult EditAdminBan(DAL.AspNetUser aspNetUser)
         {
 
-            var user = db.AspNetUsers.Find(aspNetUser.Id);
+            DAL.AspNetUser user;
+            
+            try
+            {
+                user = db.AspNetUsers.Find(aspNetUser.Id);
+            }
+            catch
+            {
+                return RedirectToAction("CustomError", "Home", new { errorName = "This administrator does not exist.", errorMessage = "The administrator may have been removed or did not exist." });
+            }
+
+            
             user.LockoutEndDateUtc = aspNetUser.LockoutEndDateUtc;
 
 
             db.SaveChanges();
-            //return View(user);
 
 
             return RedirectToAction("AllAdmin");
         }
 
+        //the page where the admin features are located
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult AdminFeatures()
         {
             return View();
         }
 
+        //page to input fact of the day
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult InputFact()
         {
@@ -700,6 +731,7 @@ namespace Astronomical_Learning.Controllers
             return View();
         }
 
+        //add the newly created fact into the database
         [HttpPost]
         [Authorize(Roles = "Administrator,Super Administrator")]
         public ActionResult InputFact(FactOfTheDay model)
