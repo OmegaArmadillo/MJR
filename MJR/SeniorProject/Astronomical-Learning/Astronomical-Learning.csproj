@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{90143E61-4402-4E48-8F0C-331FDAB0EAA8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Astronomical_Learning</RootNamespace>
+    <AssemblyName>Astronomical-Learning</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44312</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SendGrid, Version=9.14.1.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>packages\SendGrid.9.14.1\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminAbilitiesController.cs" />
+    <Compile Include="Controllers\GamesAndQuizzesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ISSController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\OuterSystemController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SolarSystemController.cs" />
+    <Compile Include="Controllers\SpaceCompaniesController.cs" />
+    <Compile Include="Controllers\SpaceSuitsController.cs" />
+    <Compile Include="Controllers\TripPlannerController.cs" />
+    <Compile Include="DAL\AspNetRole.cs" />
+    <Compile Include="DAL\AspNetUser.cs" />
+    <Compile Include="DAL\AspNetUserClaim.cs" />
+    <Compile Include="DAL\AspNetUserLogin.cs" />
+    <Compile Include="DAL\AvatarPath.cs" />
+    <Compile Include="DAL\Quizze.cs" />
+    <Compile Include="DAL\UserLevel.cs" />
+    <Compile Include="DAL\UserQuizScore.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="DAL\ALContext.cs" />
+    <Compile Include="Models\AspNetRole.cs" />
+    <Compile Include="Models\AspNetUser.cs" />
+    <Compile Include="Models\AspNetUserClaim.cs" />
+    <Compile Include="Models\AspNetUserLogin.cs" />
+    <Compile Include="Models\CountryData.cs" />
+    <Compile Include="Models\CountryState.cs" />
+    <Compile Include="Models\DemographicViewModel.cs" />
+    <Compile Include="Models\Distance.cs" />
+    <Compile Include="Models\FactOfTheDay.cs" />
+    <Compile Include="DAL\FactOfTheDayContext.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Launch.cs" />
+    <Compile Include="Models\Launches\Fairing.cs" />
+    <Compile Include="Models\Launches\FirstStage.cs" />
+    <Compile Include="Models\Launches\LaunchCustomers.cs" />
+    <Compile Include="Models\Launches\LaunchLinks.cs" />
+    <Compile Include="Models\Launches\LaunchSite.cs" />
+    <Compile Include="Models\Launches\LaunchTimeline.cs" />
+    <Compile Include="Models\Launches\MainLaunchInformation.cs" />
+    <Compile Include="Models\Launches\Orbit.cs" />
+    <Compile Include="Models\Launches\Payload.cs" />
+    <Compile Include="Models\Launches\RocketInformation.cs" />
+    <Compile Include="Models\Launches\SecondStage.cs" />
+    <Compile Include="Models\Launches\Ship.cs" />
+    <Compile Include="Models\Launches\SingleLaunchViewModel.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationDistance.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PlanetFilter.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\TripPlanModel.cs" />
+    <Compile Include="Models\UserComment.cs" />
+    <Compile Include="Models\Search\KeywordRelation.cs" />
+    <Compile Include="Models\Search\SearchKeyword.cs" />
+    <Compile Include="Models\Search\SitePage.cs" />
+    <Compile Include="Models\UserLevelsData.cs" />
+    <Compile Include="Models\ViewData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <!-- Remember to comment this out
+    <Compile Include="TempDAL\AspNetRole.cs" />
+    <Compile Include="TempDAL\AspNetUser.cs" />
+    <Compile Include="TempDAL\AspNetUserClaim.cs" />
+    <Compile Include="TempDAL\AspNetUserLogin.cs" />
+    <Compile Include="TempDAL\AvatarPath.cs" />
+    <Compile Include="TempDAL\FactOfTheDay.cs" />
+    <Compile Include="TempDAL\TempContext.cs" />
+    -->
+  </ItemGroup>
+  <ItemGroup>
+    <!--
+    <Content Include="App_Data\ALtempDB.mdf" />
+    <Content Include="App_Data\ALtempDB_log.ldf">
+      <DependentUpon>ALtempDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\ALtempDB.mdf" />
+    <Content Include="App_Data\ALtempDB_log.ldf">
+      <DependentUpon>ALtempDB.mdf</DependentUpon>
+    </Content>
+-->
+    <Content Include="App_Data\Badge Levels\user-levels-up.sql" />
+    <Content Include="App_Data\ChangesToDB.sql" />
+    <Content Include="App_Data\down.sql" />
+    <Content Include="App_Data\FactOfTheDay\downFacts.sql" />
+    <Content Include="App_Data\FactOfTheDay\facts-update.sql" />
+    <Content Include="App_Data\FactOfTheDay\seedFacts.sql" />
+    <Content Include="App_Data\FactOfTheDay\upFacts.sql" />
+    <Content Include="App_Data\profile-seed.sql" />
+    <Content Include="App_Data\Projects\downProjects.sql" />
+    <Content Include="App_Data\Projects\upProjects.sql" />
+    <Content Include="App_Data\Roles\upRoles.sql" />
+    <Content Include="App_Data\Scores\UserQuiz.sql" />
+    <!-- Remember to comment this out 
+    <Content Include="App_Data\Temporary.mdf" />
+    <Content Include="App_Data\Temporary_log.ldf">
+      <DependentUpon>Temporary.mdf</DependentUpon>
+    </Content>
+    -->
+    <Content Include="App_Data\Search\downSearch.sql" />
+    <Content Include="App_Data\Search\seedSarch.sql" />
+    <Content Include="App_Data\Search\upSearch.sql" />
+    <Content Include="App_Data\TripFilter\downTripFilter.sql" />
+    <Content Include="App_Data\TripFilter\seedTripFilter.sql" />
+    <Content Include="App_Data\TripFilter\upTripFilter.sql" />
+    <Content Include="App_Data\TripPlanner\downTripPlanner.sql" />
+    <Content Include="App_Data\TripPlanner\seedTripPlanner.sql" />
+    <Content Include="App_Data\TripPlanner\upTripPlanner.sql" />
+    <Content Include="App_Data\up.sql" />
+    <Content Include="App_Data\UserComment\demoSeedScript.sql" />
+    <Content Include="App_Data\UserComment\downUserComment.sql" />
+    <Content Include="App_Data\UserComment\upUserComment.sql" />
+    <Content Include="App_Data\ViewsData\downViewData.sql" />
+    <Content Include="App_Data\ViewsData\seedViewData.sql" />
+    <Content Include="App_Data\ViewsData\upViewData.sql" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\InfoPageStyles.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\SolarSystemMapSmall.jpg" />
+    <Content Include="Images\GalaxyMapSmall.jpg" />
+    <Content Include="Images\Constellation.jpg" />
+    <Content Include="Images\GalaxyMap.jpg" />
+    <Content Include="Images\SolarSystemMap.jpg" />
+    <Content Include="Images\Astronomical-Logo1.png" />
+    <Content Include="Images\Backgrounds\login-planets.png" />
+    <Content Include="Images\Backgrounds\register-rocket.png" />
+    <Content Include="Images\DwightDEisenhower.jpg" />
+    <Content Include="Images\Elon-Musk.jpg" />
+    <Content Include="Images\GalaxyBackground.jpg" />
+    <Content Include="Images\GalaxyBackground2.jpg" />
+    <Content Include="Images\icons\1.png" />
+    <Content Include="Images\icons\25.png" />
+    <Content Include="Images\icons\28.png" />
+    <Content Include="Images\icons\35.png" />
+    <Content Include="Images\default-profile.png" />
+    <Content Include="Images\icons\mars-icon.gif" />
+    <Content Include="Images\icons\moon-icon.gif" />
+    <Content Include="Images\icons\nasa-rocket-icon.png" />
+    <Content Include="Images\icons\planets-expand.gif" />
+    <Content Include="Images\icons\Publication1.png" />
+    <Content Include="Images\icons\sd-icon.gif" />
+    <Content Include="Images\icons\spacex-rocket-icon.png" />
+    <Content Include="Images\icons\spiral-one.png" />
+    <Content Include="Images\icons\spiral-two.png" />
+    <Content Include="Images\icons\stars.gif" />
+    <Content Include="Images\icons\sun-icon.png" />
+    <Content Include="Images\JimBridenstine.jpg" />
+    <Content Include="Images\Levels\1.png" />
+    <Content Include="Images\Levels\10.png" />
+    <Content Include="Images\Levels\2.png" />
+    <Content Include="Images\Levels\3.png" />
+    <Content Include="Images\Levels\4.png" />
+    <Content Include="Images\Levels\5.png" />
+    <Content Include="Images\Levels\6.png" />
+    <Content Include="Images\Levels\8.png" />
+    <Content Include="Images\Levels\9.png" />
+    <Content Include="Images\m1.png" />
+    <Content Include="Images\mjr-transparent.png" />
+    <Content Include="Images\mjr-transparent2.1.png" />
+    <Content Include="Images\mjr-transparent2.png" />
+    <Content Include="Images\NASA-Facilities.png" />
+    <Content Include="Images\Planets\cer.jpg" />
+    <Content Include="Images\Planets\eris.PNG" />
+    <Content Include="Images\Planets\ert.jpg" />
+    <Content Include="Images\Planets\hau.jpg" />
+    <Content Include="Images\Planets\hau.PNG" />
+    <Content Include="Images\Planets\jup.jpg" />
+    <Content Include="Images\Planets\jupio.jpg" />
+    <Content Include="Images\Planets\make.jpg" />
+    <Content Include="Images\Planets\mars.jpg" />
+    <Content Include="Images\Planets\merc.jpg" />
+    <Content Include="Images\Planets\nep.jpg" />
+    <Content Include="Images\Planets\newspot.png" />
+    <Content Include="Images\Planets\orbits.jpg" />
+    <Content Include="Images\Planets\plu.jpg" />
+    <Content Include="Images\Planets\sat.jpg" />
+    <Content Include="Images\Planets\urn.jpg" />
+    <Content Include="Images\Planets\Venus.jpg" />
+    <Content Include="Images\Profile\avatars\astronaut-a.png" />
+    <Content Include="Images\Profile\avatars\comet-a.png" />
+    <Content Include="Images\Profile\avatars\const-a.png" />
+    <Content Include="Images\Profile\avatars\default-profile.png" />
+    <Content Include="Images\Profile\avatars\moon-a.png" />
+    <Content Include="Images\Profile\avatars\rocket-a.png" />
+    <Content Include="Images\Profile\avatars\saturn-a.png" />
+    <Content Include="Images\Profile\avatars\star-a.png" />
+    <Content Include="Images\starman-img.jpg" />
+    <Content Include="Images\us-map.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\astronomicaldev - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\country-cascade.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\planner.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\planets-js.js" />
+    <Content Include="Scripts\ProfileUpdates.js" />
+    <Content Include="Scripts\Q1Answers.js" />
+    <Content Include="Scripts\adminFunctions.js" />
+    <Content Include="Scripts\quiz.js" />
+    <Content Include="Scripts\something.js" />
+    <Content Include="Scripts\spacex-main.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\something.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\OuterSystem\MilkyWay_Information.cshtml" />
+    <Content Include="Views\SolarSystem\Moon_Information.cshtml" />
+    <Content Include="Views\SolarSystem\Sun_Information.cshtml" />
+    <Content Include="Views\SpaceCompanies\SpaceX.cshtml" />
+    <Content Include="Views\OuterSystem\Andromeda_Information.cshtml" />
+    <Content Include="Views\SolarSystem\SpaceDebris_Information.cshtml" />
+    <Content Include="Views\SpaceCompanies\NASA.cshtml" />
+    <Content Include="Views\SolarSystem\Our_Planets.cshtml" />
+    <Content Include="Views\OuterSystem\Stars_Information.cshtml" />
+    <Content Include="Views\SpaceCompanies\SpaceXLaunches.cshtml" />
+    <Content Include="Views\SpaceCompanies\NASAMissions.cshtml" />
+    <Content Include="Views\SpaceCompanies\ISS.cshtml" />
+    <Content Include="Views\SpaceCompanies\NASAMissions.cshtml" />
+    <Content Include="Views\SpaceCompanies\ISS.cshtml" />
+    <Content Include="Views\ISS\InternationalSpaceStation.cshtml" />
+    <Content Include="Views\SolarSystem\KuiperBelt.cshtml" />
+    <Content Include="Views\OuterSystem\Stars_Constellations.cshtml" />
+    <Content Include="Views\SpaceSuits\SpaceAndFlightSuits.cshtml" />
+    <Content Include="Views\OuterSystem\Interstellar_Space.cshtml" />
+    <Content Include="Views\SpaceCompanies\NASAMissions.cshtml" />
+    <Content Include="Views\SpaceCompanies\ISS.cshtml" />
+    <Content Include="Views\SpaceCompanies\LaunchDetails.cshtml" />
+    <Content Include="Views\Profile\ProfilePage.cshtml" />
+    <Content Include="Views\Manage\ChangeProfileAvatar.cshtml" />
+    <Content Include="Views\Search\SearchPage.cshtml" />
+    <Content Include="Views\GamesAndQuizzes\QuizSelection.cshtml" />
+    <Content Include="Views\GamesAndQuizzes\Quiz_1.cshtml" />
+    <Content Include="Views\Manage\ChangeProfileDetails.cshtml" />
+    <Content Include="Views\AdminAbilities\ReviewComments.cshtml" />
+    <Content Include="Views\AdminAbilities\AllUsers.cshtml" />
+    <Content Include="Views\AdminAbilities\BannedUsers.cshtml" />
+    <Content Include="Views\AdminAbilities\EditUserBan.cshtml" />
+    <Content Include="Views\AdminAbilities\AdminCreate.cshtml" />
+    <Content Include="Views\AdminAbilities\BannedAdmin.cshtml" />
+    <Content Include="Views\AdminAbilities\AllAdmin.cshtml" />
+    <Content Include="Views\AdminAbilities\EditAdminBan.cshtml" />
+    <Content Include="Views\AdminAbilities\AdminFeatures.cshtml" />
+    <Content Include="Views\AdminAbilities\InputFact.cshtml" />
+    <Content Include="Views\GamesAndQuizzes\Q1Score.cshtml" />
+    <Content Include="Views\Home\Credits.cshtml" />
+    <Content Include="Views\Home\CustomError.cshtml" />
+    <Content Include="Views\TripPlanner\OurSolarSystem.cshtml" />
+    <Content Include="Views\Map\InteractiveMap.cshtml" />
+    <Content Include="Views\Profile\UserProfile.cshtml" />
+    <Content Include="Views\Projects\ProjectList.cshtml" />
+    <Content Include="Views\Projects\CreateProject.cshtml" />
+    <Content Include="Views\AdminAbilities\ReviewProjects.cshtml" />
+    <Content Include="Views\SolarSystem\Mars_Research.cshtml" />
+    <Content Include="Views\AdminAbilities\Demographics.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62508</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44312/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

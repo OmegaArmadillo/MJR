@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class=" container information-paragraphs dark-bkr">
+    <h2>Results for @ViewBag.search</h2>
+
+
+    @foreach (var x in ViewBag.pagesList)
+    {
+        <h3>
+            <a href="~/@x.Link">@x.Name</a><br>
+
+        </h3>
+
+        <h4>@x.Description</h4>
+    }
+
+    <br />
+    <h2>Users</h2>
+    @foreach( var name in ViewBag.UserList)
+    {
+        <h3>
+            <a href="~/Profile/UserProfile?id=@name.Id">@name.UserName</a>
+        </h3>
+    }
+</div>
+
+
+<script src="~/Scripts/main.js">
+</script>
+
+
+

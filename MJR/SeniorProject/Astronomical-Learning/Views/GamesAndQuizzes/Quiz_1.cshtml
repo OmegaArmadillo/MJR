@@ -1,0 +1,396 @@
+﻿
+@{
+    ViewBag.Title = "Quiz_1";
+}
+
+<div class="container information-paragraphs dark-bkr">
+    @using (Html.BeginForm("Q1Score", "GamesAndQuizzes", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="container-fluid planets-btn-grp">
+            <div class="btn-group btn-group-justified" role="group">
+                <a href="#" class="btn planets-btn active" data-target="#quiz1-carousel" data-slide-to="0">Start</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="1">1</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="2">2</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="3">3</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="4">4</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="5">5</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="6">6</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="7">7</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="8">8</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="9">9</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="10">10</a>
+                <a href="#" class="btn planets-btn" data-target="#quiz1-carousel" data-slide-to="10" onclick="calculateQuiz1Score()">Finish</a>
+            </div>
+        </div>
+        <div class="container-fluid carousel-container">
+            <div id="quiz1-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner" style="height:600px">
+                    <div class="item active">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Quiz 1: Our Solar System</h2>
+                                <h3>This quiz goes over information in the "Our Solar System" pages.</h3>
+                                <h3>Use the numbered buttons at the top of the page to change questions.</h3>
+                                <h3>You can use the "Finish" button to see your score on the quiz.</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 1</h2>
+                                <h3>How old is The Sun?</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img style="height:250px; width:250px" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg" alt="Alternate Text" />
+                                </div>
+                                <div class="col-lg-6 form-group">
+                                    <div>
+                                        @Html.RadioButton("a1", "1", true) @Html.Label("", "3.8 Billion Years", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a1", "2") @Html.Label("", "4.5 Billion Years", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a1", "3") @Html.Label("", "4.5 Million Years", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a1", "4") @Html.Label("", "3.8 Billion Years", new { @class = "answer-label" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 2</h2>
+                                <h3>How does a solar eclipse happen?</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <img style="height:250px; width:250px" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg" alt="Alternate Text" />
+                                </div>
+                                <div class="col-lg-7 form-group">
+                                    <div style="height:20px"></div>
+                                    <div>
+                                        <label class="answer-label">@Html.RadioButton("a2", "1", true) When the Moon gets between the Earth and Sun" </label>
+                                    </div>
+                                    <div>
+                                        <label class="answer-label">@Html.RadioButton("a2", "2") When the Sun gets between the Earth and Moon</label>
+                                    </div>
+                                    <div>
+                                        <label class="answer-label">@Html.RadioButton("a2", "3") When Mercury gets between the Sun and Earth</label>
+                                    </div>
+                                    <div>
+                                        <label class="answer-label">@Html.RadioButton("a2", "4")  When an asteroid gets between the Sun and Earth</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 3</h2>
+                                <h3>What was the first mission to have humans land on The Moon?</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img style="height:250px; width:250px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Full_moon.jpeg/600px-Full_moon.jpeg" alt="Alternate Text" />
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <div style="height:20px"></div>
+                                    <div>
+                                        @Html.RadioButton("a3", "1", true) @Html.Label("Apollo 12", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a3", "2") @Html.Label("Luna 2", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a3", "3") @Html.Label("Luna 3", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a3", "4") @Html.Label("Apollo 11", new { @class = "answer-label" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 4</h2>
+                                <h3>What are many of the features of Venus named after</h3>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img style="height:250px; width:250px" src="~/Images/Planets/Venus.jpg" alt="Alternate Text" />
+
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <div style="height:20px"></div>
+                                    <div>
+                                        @Html.RadioButton("a4", "1", true) @Html.Label("Animals", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a4", "2") @Html.Label("Men", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a4", "3") @Html.Label("Women", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a4", "4") @Html.Label("Gods", new { @class = "answer-label" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 5</h2>
+                                <h3>Is Pluto still considered a planet?</h3>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img style="height:250px; width:250px" src="~/Images/Planets/plu.jpg" alt="Alternate Text" />
+
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <div style="height:20px"></div>
+                                    <div>
+                                        @Html.RadioButton("a5", "1", true) @Html.Label("Yes", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a5", "2") @Html.Label("No", new { @class = "answer-label" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 6</h2>
+                                <h3>Has research found evidence of water once being on Mars?</h3>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img style="height:250px; width:250px" src="~/Images/Planets/mars.jpg" alt="Alternate Text" />
+
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <div style="height:20px"></div>
+                                    <div>
+                                        @Html.RadioButton("a6", "1", true) @Html.Label("Yes", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a6", "2") @Html.Label("No", new { @class = "answer-label" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 7</h2>
+                                <h3>What is the difference between a meteoroid and a meteor?</h3>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img style="height:250px; width:250px" src="https://www.jpl.nasa.gov/images/dawn/20150331/vesta20150331.jpg" alt="Alternate Text" />
+
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <div style="height:20px"></div>
+                                    <div>
+                                        @Html.RadioButton("a7", "1", true) @Html.Label("Where they are located", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a7", "2") @Html.Label("What they are made out of", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a7", "3") @Html.Label("Both 1 and 2", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a7", "4") @Html.Label("They are the same thing", new { @class = "answer-label" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 8</h2>
+                                <h3>What caused the most recent extinction event?</h3>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img style="height:250px; width:250px" src="https://media.nationalgeographic.org/assets/photos/000/257/25715.jpg" alt="Alternate Text" />
+
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <div style="height:20px"></div>
+                                    <div>
+                                        @Html.RadioButton("a8", "1", true) @Html.Label("A Meteor", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a8", "2") @Html.Label("An Asteroid", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a8", "3") @Html.Label("A Comet", new { @class = "answer-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButton("a8", "4") @Html.Label("A Planet", new { @class = "answer-label" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 9</h2>
+                                <h3>Why is Mars red?</h3>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img style="height:250px; width:250px" src="~/Images/Planets/mars.jpg" alt="Alternate Text" />
+
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <div style="height:20px"></div>
+                                    <div>
+                                        <label class="answer-label">@Html.RadioButton("a9", "1", true) The elements in the atmosphere of Mars</label>
+                                    </div>
+                                    <div>
+                                        <label class="answer-label">@Html.RadioButton("a9", "2") The rust from the iron on its surface</label>
+                                    </div>
+                                    <div>
+                                        <label class="answer-label">@Html.RadioButton("a9", "3") Our eyes interpret it as red because it is so far away</label>
+                                    </div>
+                                    <div>
+                                        <label class="answer-label">@Html.RadioButton("a9", "4") The Sun makes it appear as red even though it isn't</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Question 10</h2>
+                                <h3>How much smaller is The Moon compared to earth.</h3>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img style="height:250px; width:250px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Full_moon.jpeg/600px-Full_moon.jpeg" alt="Alternate Text" />
+
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div style="height:20px"></div>
+                                        <div>
+                                            @Html.RadioButton("a10", "1", true) @Html.Label("400 Times", new { @class = "answer-label" })
+                                        </div>
+                                        <div>
+                                            @Html.RadioButton("a10", "2") @Html.Label("2 Times", new { @class = "answer-label" })
+                                        </div>
+                                        <div>
+                                            @Html.RadioButton("a10", "3") @Html.Label("81 Times", new { @class = "answer-label" })
+                                        </div>
+                                        <div>
+                                            @Html.RadioButton("a10", "4") @Html.Label("67 Times", new { @class = "answer-label" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="btn btn-primary quiz-submit" type="submit" id="q1-submit" value="Finish Quiz..." />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-2"></div>
+
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <h2>Quiz Results</h2>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <button class="btn-primary" onclick="location.href = 'QuizSelection';">Try a different quiz.</button>
+                                </div>
+
+                                <div class="col-lg-6">
+
+                                    <ol style="font-size:20px">
+                                        <li id="a1"></li>
+                                        <li id="a2"></li>
+                                        <li id="a3"></li>
+                                        <li id="a4"></li>
+                                        <li id="a5"></li>
+                                        <li id="a6"></li>
+                                        <li id="a7"></li>
+                                        <li id="a8"></li>
+                                        <li id="a9"></li>
+                                        <li id="a10"></li>
+                                    </ol>
+                                    <div style="font-size:20px; text-align:center; width:120px" id="total"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script src="~/Scripts/main.js">
+    </script>
+
+    <script src="~/Scripts/Q1Answers.js">
+    </script>
+}
